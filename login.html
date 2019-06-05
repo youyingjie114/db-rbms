@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>RBMS</title>
+    <!-- 导入弹窗项目 -->
+    <script src="js/sweet-alert.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- 导入其他css文件 -->
+    <link rel="stylesheet" type="text/css" href="css/checkboxes.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+<div class="html-container">
+    <div class="login-wrapper">
+        <div class="login">
+            <h1>Welcome RBMS</h1>
+
+            <form class="login-form">
+                <input type="text" name="username" placeholder="Username" onfocus="this.placeholder=''" onblur="this.placeholder='Username'" autocomplete="off">
+                <input type="password" name="password" placeholder="Password" onfocus="this.placeholder=''" onblur="this.placeholder='Password'" autocomplete="off">
+                <button type="submit" id="login-button">Login</button>
+            </form>
+        </div>
+        <div class="switch-wrap">
+            <div class="ckbx-style-9">
+                <input type="checkbox" id="ckbx-style-9-1" value="0" name="ckbx-style-9">
+                <label for="ckbx-style-9-1"></label>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// 设置登录按钮监听器，点击向后台发起登录请求
+$('#login-button').click(function (event) {
+    event.preventDefault()  // 阻止页面刷新
+    var username = $('.login-form input')[0].value
+    if (username === '') {
+        alertError('用户名不能为空')
+        return
+    }
+    // 如果单选框未被选中，则表明此时应该登录后台管理界面
+    if(!$('#ckbx-style-9-1').is(':checked')) {
+        $.ajax({
+            type: 'post',
+            url: 'isConnect.php',
+            data: $('.login-form').serialize(),
+            success: data => {
+                if (data[0] === '1') {
+                    $('.login-form').fadeOut(500);
+                    $('.login-wrapper').addClass('login-success')
+                    $('.switch-wrap').css('opacity', '0')
+                    setTimeout(() => {
+                        var form = $('.login-form')
+                        form.attr('action', 'control.php')
+                        form.attr('method', 'post')
+                        form.submit()
+                    }, 1000);
+                } else if (data[0] === '2') {
+                    alertError('用户名不存在')
+                } else {
+                    alertError('密码不正确')
+                }
+            }
+        })
+        return 
+    }
+    // 请求登录客户端界面
+    $.ajax({
+        type: 'post',
+        url: 'isCustomer.php',
+        data: $('.login-form').serialize(),
+        success: data => {
+            var responce = eval('(' + data + ')')
+            if (responce.cusFlag === 1) {
+                $('.login-form').fadeOut(500);
+                $('.login-wrapper').addClass('login-success')
+                $('.switch-wrap').css('opacity', '0')
+                setTimeout(() => {
+                    var form = $('.login-form')
+                    form.attr('action', 'client.php')
+                    form.attr('method', 'post')
+                    form.submit()
+                }, 1000);
+            } else {
+                alertError('cid不存在')
+            }
+        }
+    })
+})
+
+// sweetAlert弹窗，指示成功
+function alertSuccess (info) {
+    showTable($('caption').text())
+    closeDialog()
+    sweetAlert({
+        title: info,
+        type: "success",
+        timer: 1000,
+        showConfirmButton: false,
+    })
+}
+
+// sweetAlert弹窗，指示发生错误
+function alertError (info) {
+    sweetAlert({
+        title: info,  
+        type: "error",
+        timer: 1000,
+        showConfirmButton: false,
+    })
+}
+</script>
+</body>
+</html>

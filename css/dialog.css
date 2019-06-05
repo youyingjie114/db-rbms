@@ -1,0 +1,136 @@
+.dialog,.dialog-overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0
+}
+
+.dialog {
+    position: fixed;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.dialog-overlay {
+    position: absolute;
+    z-index: 1;
+    background: rgba(55,58,71,.9);
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    -webkit-backface-visibility: hidden;
+}
+
+.dialog-open .dialog-overlay {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.dialog-content {
+    width: 50%;
+    max-width: 560px;
+    min-width: 290px;
+    background: #fff;
+    padding: 4em;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    opacity: 0;
+}
+
+.dialog-open .dialog-content {
+    pointer-events: auto;
+}
+
+.dialog h2 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 2em;
+    padding: 0 0 0.5em;
+    margin: 0;
+    font-family: raleway,Arial,sans-serif;
+    color: #c94e50;
+}
+
+.action {
+    margin-top: 20px;
+    padding: 1em 2em;
+    outline: 0;
+    font-weight: 600;
+    font-size: 100%;
+    border: 0;
+    color: #fff;
+    background: #c94e50;
+    cursor: pointer;
+}
+
+.dialog.dialog-open .dialog-content,.dialog.dialog-close .dialog-content {
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards
+}
+
+.dialog.dialog-open .dialog-content {
+    -webkit-animation-name: anim-open;
+    animation-name: anim-open;
+}
+
+.dialog.dialog-close .dialog-content {
+    -webkit-animation-name: anim-close;
+    animation-name: anim-close
+}
+
+@-webkit-keyframes anim-open {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(1.1,1.1,1)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1,1,1)
+    }
+}
+
+@keyframes anim-open {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(1.1,1.1,1);
+        transform: scale3d(1.1,1.1,1)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1,1,1);
+        transform: scale3d(1,1,1)
+    }
+}
+
+@-webkit-keyframes anim-close {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale3d(.9,.9,1)
+    }
+}
+
+@keyframes anim-close {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale3d(.9,.9,1);
+        transform: scale3d(.9,.9,1)
+    }
+}
+

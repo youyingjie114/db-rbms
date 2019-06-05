@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+}
+
+/* @charset "utf-8";body,html {
+    height: 100%;
+    background: #f5f5f5;
+} */
+
+body,ul {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font: 14px 微软雅黑,宋体,arial narrow,HELVETICA;
+    -webkit-text-size-adjust: 100%
+}
+
+li {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+.nav {
+    width: 220px;
+    height: 92.5%;
+    background: #263238;
+    transition: all .3s;
+    position: absolute;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.nav a {
+    display: block;
+    overflow: hidden;
+    padding-left: 20px;
+    line-height: 46px;
+    max-height: 46px;
+    color: #abb1b7;
+    transition: all .3s;
+    text-decoration: none;
+}
+
+.nav a span {
+    margin-left: 30px
+}
+
+.nav-item {
+    position: relative
+}
+
+.nav-item.nav-show {
+    border-bottom: 0
+}
+
+.nav-item ul {
+    display: none;
+    background: rgba(0,0,0,.1)
+}
+
+.nav-item.nav-show ul {
+    display: block
+}
+
+.nav-item>a:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 46px;
+    background: #34a0ce;
+    opacity: 0;
+    transition: all .3s
+}
+
+.nav .nav-icon {
+    font-size: 20px;
+    position: absolute;
+    margin-left: -1px
+}
+
+.icon_1::after {
+    content: "\e62b"
+}
+
+/* .icon_2::after {
+    content: "\e669"
+} */
+
+.icon_3::after {
+    content: "\e61d"
+}
+
+.nav-more {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    transition: transform .3s
+}
+
+.nav-more::after {
+    content: "\e621"
+}
+
+.nav-show .nav-more {
+    transform: rotate(90deg)
+}
+
+.nav-show,.nav-item>a:hover {
+    color: #fff;
+    background: rgba(0,0,0,.1)
+}
+
+.nav-show>a:before,.nav-item>a:hover:before {
+    opacity: 1
+}
+
+.nav-item li:hover a {
+    color: #fff;
+    background: rgba(0,0,0,.1)
+}
+
+.nav-mini.nav {
+    width: 60px
+}
+
+/* .nav-mini.nav .nav-icon {
+} */
+
+.nav-mini.nav .nav-item>a span {
+    display: none
+}
+
+.nav-mini.nav .nav-more {
+    margin-right: -20px
+}
+
+.nav-mini.nav .nav-item ul {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    width: 180px;
+    z-index: 99;
+    background: #3c474c;
+    overflow: hidden
+}
+
+.nav-mini.nav .nav-item:hover {
+    background: rgba(255,255,255,.1)
+}
+
+.nav-mini.nav .nav-item:hover .nav-item a {
+    color: #fff
+}
+
+.nav-mini.nav .nav-item:hover a:before {
+    opacity: 1
+}
+
+.nav-mini.nav .nav-item:hover ul {
+    display: block
+}
+
+
+/* 顶部导航样式 */
+.nav-header {
+    width: 100%;
+    left: 0;
+    height: 60px;
+    z-index: 800;
+    background-color: #263238;
+    line-height: 80px;
+    transition: all 1s ease 0s;
+}
+
+.header-icon {
+    color: white;
+    position: relative;
+    font-size: 30px;
+    bottom: 7px;
+    left: 15px;
+    opacity: 0.95;
+}
+
+.nav-content {
+    display: block;
+    position: relative;
+    margin-left: 220px;
+    transition: all 0.3s;
+}
+
+.content-header {
+    height: 40px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #e5e5e5;
+    line-height: 42px;
+}
+
+.table-card {
+    padding: 12px;
+    /* background: #fbfbfb; */
+    margin: 20px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-user {
+    position: absolute;
+    display: block;
+    top: 0px;
+    right: 0px;
+    margin-right: 20px;
+    height: 60px;
+}
+
+.user-head {
+    display: block;
+    padding: 5px;
+    height: 60px;
+    padding-top: 7px;
+    background: #061923;
+}
+
+.user-head:hover {
+    text-decoration: none;
+}
+
+.user-head:focus {
+    text-decoration: none;
+}
+
+.icon-user-check:before {
+    font-size: 30px;
+}
+
+.img-head {
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+    vertical-align: baseline;
+}
+
+.path {
+    margin-left: 15px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.path>li {
+    display: inline-block;
+    font-size: 1.1em;
+}
+
+.icon-home {
+    color: rgb(109, 108, 108);
+}
+
+.icon-home::before {
+    font-size: 20px;
+}
+
+.icon-arrow-right2 {
+    color: rgb(109, 108, 108);
+}
+
+.path>li>span {
+    color: #4c8fbd;
+    cursor: pointer;
+}
+
+.user-name {
+	color: white;
+	position: relative;
+	bottom: 15px;
+	font-size: 18px;
+	margin: 0 5px;
+}
+
+.icon-triangle-down {
+	color: white;
+	position: relative;
+	bottom: 12px;
+}
+
+.icon-triangle-down::before {
+    font-size: 18px;
+}

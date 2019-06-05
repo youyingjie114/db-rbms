@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+caption {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    font-size: 150%;
+}
+
+table>tbody>tr:hover td {
+    background-color: #E0EEEE !important;
+}
+
+table>thead>tr>th {
+    border-bottom: 2px solid #ddd;
+    border-right: 1px solid #ddd;
+    background: #f9f9f9;
+    padding: 8px;
+    text-align: left;
+}
+
+table>thead>tr>th:last-child {
+    border-right: 0;
+}
+
+table>tbody>tr>td {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table>tbody>tr>td:last-child {
+    border-right: 0;
+}
+
+table>tbody>tr:last-child {
+    border-bottom: 0;
+}
+
+table>tbody>tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.button-delete {
+    background: url(../img/trash.png);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    border: 0;
+    opacity: 0.8;
+    outline: none;
+}
+
+.button-delete {
+    outline: none;
+}
+
+.button-edit {
+    background: url(../img/edit.png);
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    border: 0;
+    opacity: 0.7;
+    outline: none;
+}
+
+.button-edit {
+    outline: none;
+}
+
+.button-delete-wrap, .button-edit-wrap, .button-analysis-wrap {
+    text-align: center;
+}
+
+.button-analysis {
+    background: url(../img/analysis.png);
+    width: 25px;
+    height: 25px;
+    border: 0;
+    background-size: 100% 100%;
+    opacity: 0.7;
+    outline: none;
+}
+
+.button-back {
+    background: url(../img/back.png);
+    width: 25px;
+    height: 25px;
+    border: 0;
+    background-size: 100% 100%;
+    opacity: 0.5;
+    outline: none;
+    position: relative;
+    right: 120px;
+}
+
+
+.table-bottom {
+    border: 2px solid #ddd;
+    border-top: 0;
+    height: 80px;
+    margin: 0 auto;
+    position: relative;
+    top: -5px;
+}
+
+.field:focus {
+    outline: none;
+}
+
+.key {
+    font-size: 120%;
+}
+
+.field {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    font-size: 120%;
+}
+
+.ky-wrap {
+    display: inline-block;
+    margin: 10px;
+}
+
+.button-wrap {
+    margin-top: 20px;
+}
+
+.button-modify {
+    background: url(../img/edit.png);
+    width: 30px;
+    height: 30px;
+    background-size: 100% 100%;
+    border: 0;
+    opacity: 0.8;
+    margin: 5px;
+    outline: none;
+}
+
+.button-modify:focus {
+    outline: none;
+}
+
+.button-add {
+    background: url(../img/add.png);
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    border: 0;
+    opacity: 0.8;
+    margin: 5px;
+    outline: none;
+}
+
+.button-add:focus {
+    outline: none;
+}
+
+.button-submit {
+    display: none;
+}
+
+.td-button-wrap {
+    text-align: left;
+}
+
+.td-button {
+    cursor: pointer;
+    opacity: 0.85;
+    transition: all 0.2s;
+}
+
+.td-button:hover {
+    transform: scale(1.2);
+    opacity: 1;
+    display: block;
+}
+
+.icon-bin {
+    font-size: 18px;
+    color: #dd5a43;
+}
+
+.icon-pencil {
+    font-size: 120%;
+    color: #478fca;
+}
+
+.icon-stats-dots {
+    font-size: 120%;
+    color: #66CDAA;
+}
+
+.icon-paragraph-left {
+    font-size: 16px;
+    color: #66CDAA;
+}
+
+.td-button-modify-div, .td-button-delete-div, .td-button-analysis-div, .td-button-supAnalysis-div {
+    display: inline-block;
+}
+
+.td-button-modify-div {
+    margin-right: 10px;
+}
+
+.fixed-table-pagination {
+    border: 1px solid #ddd;
+    border-top: 0px;
+    padding: 8px;
+}
+
+.toolbar-button-add {
+    padding: 0px 15px;
+    outline: 0;
+    font-weight: 600;
+    font-size: 100%;
+    border: 0;
+    color: #fff;
+    background: #c94e50;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+#my-toolbar {
+    display: none;
+}
